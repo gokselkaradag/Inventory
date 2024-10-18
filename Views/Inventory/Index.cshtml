@@ -1,0 +1,310 @@
+﻿@model IEnumerable<InventoryItem>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Inventory</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="~/envanter/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/envanter/css/fontAwesome.css">
+    <link rel="stylesheet" href="~/envanter/css/hero-slider.css">
+    <link rel="stylesheet" href="~/envanter/css/templatemo-main.css">
+    <link rel="stylesheet" href="~/envanter/css/owl-carousel.css">
+    <link rel="icon" type="wwwroot/img" href="~/img/icon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="~/envanter/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<!--
+Vanilla Template
+https://templatemo.com/tm-526-vanilla
+-->
+<body>
+
+    <div class="fixed-side-navbar">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#home"><span>Ana Sayfa</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#services"><span>Hakkımızda</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio"><span>Envanter</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact-us"><span>İletişim</span></a></li>
+        </ul>
+    </div>
+
+    <div class="parallax-content baner-content" id="home">
+        <div class="container">
+            <div class="first-content">
+                <h1>HOŞGELDİNİZ</h1>
+                <br />
+                <span><em>Envanter</em> Uygulaması</span>
+                <div class="primary-button">
+                    <a href="#portfolio">Devam Et</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="service-content" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="left-text">
+                        <h4>Hakkkımızda</h4>
+                        <div class="line-dec"></div>
+                        <p>
+                            Inventory, modern stok ve envanter yönetim çözümleri sunan yenilikçi bir platformdur. İşletmelerin stoklarını verimli bir şekilde yönetmesine, raporlar almasına ve tedarik zincirlerini optimize etmesine yardımcı olur. Gelişmiş özellikleri sayesinde kullanıcılar, envanter süreçlerini zahmetsizce takip edebilir ve iş akışlarını iyileştirebilir. Müşteri memnuniyetini artırmak ve operasyonel maliyetleri düşürmek hedeflerimiz arasında yer alır.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Gelişmiş Envanter Takibi</h4>
+                                <div class="line-dec"></div>
+                                <p>Stoklarınızı anlık olarak izleyebilir, düşük stok seviyeleri hakkında uyarılar alabilirsiniz. Böylece tedarik süreçlerinizi daha iyi yönetebilirsiniz.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Detaylı Raporlama</h4>
+                                <div class="line-dec"></div>
+                                <p>İhtiyaçlarınıza göre özelleştirilmiş raporlar ile stoklarınız hakkında detaylı bilgi edinin. Geçmiş stok hareketlerini kolayca takip edin ve stratejik kararlar alın.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Esnek Entegrasyon</h4>
+                                <div class="line-dec"></div>
+                                <p>Envanter yazılımınız, kullandığınız diğer yazılımlar ve e-ticaret platformları ile entegre olarak çalışabilir. Bu sayede operasyonel süreçlerinizi daha verimli hale getirebilirsiniz.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>7/24 Destek</h4>
+                                <div class="line-dec"></div>
+                                <p>Müşteri desteğimiz, uygulamanın her aşamasında size yardımcı olmak için her zaman yanınızda. Envanter yönetimi sürecinde karşılaştığınız tüm sorunlar için profesyonel destek alın.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="service-content projects-content" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <!-- First card with Esnek Entegrasyon -->
+                        <div class="col-md-6">
+                            <div class="service-item card">
+                                <div class="card-body">
+                                    <form method="get" asp-action="Index" class="d-flex flex-nowrap">
+                                        <input type="text" name="searchTerm" placeholder="eleman" class="form-control" />
+                                        <a href="#portfolio" class="btn btn-success ms-2">Ekle</a>
+                                    </form>
+                                </div>
+                                <hr />
+                                <table class="table table-striped">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Employee</td>
+                                                <td>@item.Piece</td>
+                                                <td>
+                                                    <img src="@item.FilePath" alt="Eleman Fotoğrafı" width="100" />
+                                                </td>
+                                                <td>
+                                                    <a href="/Inventory/DeleteInventory/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Second card with 7/24 Destek -->
+                        <div class="col-md-6">
+                            <div class="service-item card">
+                                <div class="card-body">
+                                    <form asp-action="AddInventory" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="Employee">Eleman</label>
+                                            <input type="text" name="Employee" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Piece">Adet</label>
+                                            <input type="text" name="Piece" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="FilePath">Fotoğraf</label>
+                                            <input type="file" name="FilePath" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="DateTime">Son Kullanma Tarihi</label>
+                                            <input type="date" name="DateTime" class="form-control">
+                                        </div>
+                                        <button type="submit" href="#portfolio" class="btn btn-primary">Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="parallax-content contact-content" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <div class="row">
+                            <form id="contact" action="" method="post">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <input name="email" type="email" class="form-control" id="email" placeholder="Mail Adresiniz" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız..." required=""></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="btn">Gönder</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map">
+                        <!-- How to change your own map point
+                               1. Go to Google Maps
+                               2. Click on your location point
+                               3. Click "Share" and choose "Embed map" tab
+                               4. Copy only URL and paste it within the src="" field below
+                        -->
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192545.25068966384!2d28.77600226392892!3d41.05763480451749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b39cefc5e3%3A0xee4f06a4f79630ce!2sAcunmedya%20Akademi!5e0!3m2!1str!2str!4v1728561372323!5m2!1str!2str" width="100%" height="390" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="primary-button">
+                        <a href="#home">Geri Dön</a>
+                    </div>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/gokselkrdg" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="https://github.com/gokselkaradag" target="_blank"><i class="fa fa-github"></i></a></li>
+                        <li><a href="http://gokselkaradag.com.tr" target="_blank"><i class="fa fa-briefcase"></i></a></li>
+                    </ul>
+                    <p>
+                        Copyright &copy; 2024 Inventory
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/envanter/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="~/envanter/js/vendor/bootstrap.min.js"></script>
+    <script src="~/envanter/js/plugins.js"></script>
+    <script src="~/envanter/js/main.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            document.getElementById(cityName).style.display = "block";
+        }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $(".fixed-side-navbar a, .primary-button a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const persons = @Html.Raw(Json.Serialize(Model)); // Convert model to JSON for use in JavaScript
+            const availableNames = persons.map(person => person.Employee); // Assuming 'Employee' is the name field
+
+            $("#searchInput").autocomplete({
+                source: availableNames,
+                select: function (event, ui) {
+                    // When a name is selected, filter the list
+                    filteredPersons = persons.filter(person => person.Employee.toLowerCase() === ui.item.value.toLowerCase());
+                    currentPage = 1;
+                    loadPersons(currentPage); // You should implement this function
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
